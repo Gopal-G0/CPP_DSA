@@ -80,10 +80,12 @@ void printLevelOrder(TreeNode* root) {
 // Inorder Traversal to check structure
 void inorder(TreeNode *root)
 {
-    if (root == NULL)
-        return;
+    if (root == NULL) return;
+
     inorder(root->left);
+
     std::cout << root->data << " ";
+    
     inorder(root->right);
 }
 
