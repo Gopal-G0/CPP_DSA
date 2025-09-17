@@ -54,6 +54,30 @@ void insert(TreeNode *root, int val)
     }
 }
 
+void printLevelOrder(TreeNode* root) {
+    if (root == NULL) return;
+
+    queue<TreeNode*> q;
+    q.push(root);
+
+    while(!q.empty()) {
+        int size = q.size();
+        while (size--) {
+            TreeNode* node = q.front();
+            q.pop();
+            if (node) {
+                cout << node->data << " ";
+                q.push(node->left);
+                q.push(node->right);
+            } else {
+                cout << "- "; // placeholder for null
+            }
+        }
+        cout << endl;
+    }
+}
+
+
 // Inorder Traversal to check structure
 void inorder(TreeNode *root)
 {
@@ -90,5 +114,8 @@ int main() {
     cout << endl;
 
     cout << findDepth(root,4) << endl;
+    cout << endl;
+    printLevelOrder(root);
+    cout << endl;
     return 0;
 }
