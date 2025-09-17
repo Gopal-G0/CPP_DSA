@@ -1,6 +1,5 @@
-#include <iostream>
+#include<iostream>
 #include<queue>
-using namespace std;
 
 // Tree Node Structure
 
@@ -22,7 +21,7 @@ struct TreeNode
 
 void insert(TreeNode *root, int val)
 {
-    queue<TreeNode *> q;
+    std :: queue<TreeNode *> q;
     q.push(root);
 
     while (!q.empty())
@@ -57,7 +56,7 @@ void insert(TreeNode *root, int val)
 void printLevelOrder(TreeNode* root) {
     if (root == NULL) return;
 
-    queue<TreeNode*> q;
+    std :: queue<TreeNode*> q;
     q.push(root);
 
     while(!q.empty()) {
@@ -66,14 +65,14 @@ void printLevelOrder(TreeNode* root) {
             TreeNode* node = q.front();
             q.pop();
             if (node) {
-                cout << node->data << " ";
+                std :: cout << node->data << " ";
                 q.push(node->left);
                 q.push(node->right);
             } else {
-                cout << "- "; // placeholder for null
+                std :: cout << "- "; // placeholder for null
             }
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 }
 
@@ -84,7 +83,7 @@ void inorder(TreeNode *root)
     if (root == NULL)
         return;
     inorder(root->left);
-    cout << root->data << " ";
+    std::cout << root->data << " ";
     inorder(root->right);
 }
 
@@ -111,11 +110,11 @@ int main() {
     insert(root,8);
 
     inorder(root);
-    cout << endl;
+    std::cout << std::endl;
 
-    cout << findDepth(root,4) << endl;
-    cout << endl;
+    std::cout << findDepth(root,4) << std::endl;
+    std::cout << std::endl;
     printLevelOrder(root);
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
